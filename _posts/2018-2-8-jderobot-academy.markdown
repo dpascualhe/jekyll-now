@@ -2,7 +2,8 @@
 layout: post
 title: JdeRobot Academy
 ---
-![JdeRobot logo]({{site.baseurl}}/images/jderobot.png)
+<img src="https://github.com/dpascualhe/dpascualhe.github
+.io/blob/master/images/jderobot.png" alt="JdeRobot" style="width: 200px;"/>
 
 **JdeRobot** is a middleware that provides drivers and tools in order to ease
  the interaction between hardware and software components. Communication is 
