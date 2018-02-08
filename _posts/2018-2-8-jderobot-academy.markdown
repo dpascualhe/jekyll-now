@@ -2,9 +2,9 @@
 layout: post
 title: JdeRobot Academy
 ---
-![JdeRobot logo]({{ site.baseurl }}/images/jderobot.png){:.center-image height="250px" width="250px"}
-
 **JdeRobot** is a middleware that provides drivers and tools in order to ease the interaction between hardware and software components. Communication is enabled by Ice and it's ROS compatible.
+
+![JdeRobot logo]({{ site.baseurl }}/images/jderobot.png){:.center-image height="200px" width="200px"}
 
 As an assignment for one of my master's degree subject (**robotic vision**), we have to build a few vision/robotics based solutions for real world problems. These applications will be built aided by JdeRobot tools, within the 
 framework of its teaching platform, **JdeRobot Academy**. It contains exercises related with autonomous driving, drones, navigation...
