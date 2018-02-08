@@ -2,7 +2,7 @@
 layout: post
 title: JdeRobot Academy
 ---
-![](https://github.com/dpascualhe/dpascualhe.github.io/blob/master/images/jderobot.png)
+![](images/jderobot.png)
 
 **JdeRobot** is a middleware that provides drivers and tools in order to ease the interaction between hardware and software components. Communication is enabled by Ice and it's ROS compatible.
 
