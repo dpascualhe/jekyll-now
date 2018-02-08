@@ -2,6 +2,7 @@
 layout: post
 title: JdeRobot Academy
 ---
+![alt text](/images/jderobot.svg "JdeRobot logo")
 
 **JdeRobot** is a middleware that provides drivers and tools in order to ease
  the interaction between hardware and software components. Communication is 
