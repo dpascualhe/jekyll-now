@@ -2,7 +2,9 @@
 layout: post
 title: JdeRobot Academy
 ---
-![JdeRobot]({{ site.baseurl }}/images/jderobot.png)
+<p align="center">
+    ![JdeRobot]({{ site.baseurl }}/images/jderobot.png)
+</p>
 
 [**JdeRobot**](https://jderobot.org/Main_Page) is a middleware that provides drivers and tools in order to ease the interaction between hardware and software components. Communication is enabled by Ice and it's ROS compatible. And rocks! And matters!
 
