@@ -16,6 +16,8 @@ The simulated F1 car is provided with a camera and a laser (those blue rays in t
 
 <img src="https://github.com/dpascualhe/dpascualhe.github.io/blob/master/images/follow_line.png" alt="follow_line" style="width: 500px;"/>
 
+![follow_line]({{ site.baseurl }}/images/follow_line.png)
+
 And that's it. In the next posts I will present the algorithm developed and the results achieved. See ya!
 
 
