@@ -7,14 +7,12 @@ And here we go again! This is first post regarding ***Follow Line***, my first a
 ## Gazebo simulation
 Gazebo is an open-source tool for complex robotics simulations. In our case, both the racing circuit and the F1 car, as well as their physical properties, are simulated within a Gazebo world. A screenshot of the *simpleCircuit* world can be seen in the following figure.
 
-<img src="https://github.com/dpascualhe/dpascualhe.github.io/blob/master/images/simpleCircuit.png" alt="simpleCircuit" style="width: 700px;"/>
+![simpleCircuit]({{ site.baseurl }}/images/simpleCircuit.png)
 
 The simulated F1 car is provided with a camera and a laser (those blue rays in the previous image). We're only going to use the first one in this practice.
 
 ## *follow_line* 
 *follow_line* is the JdeRobot component that links the Gazebo simulation with our algorithm. Besides that, it provides a GUI that shows the live video feed from the car and right next to it a frame to visualize our processing results. This GUI also allows the user to control the car manually.
-
-<img src="https://github.com/dpascualhe/dpascualhe.github.io/blob/master/images/follow_line.png" alt="follow_line" style="width: 500px;"/>
 
 ![follow_line]({{ site.baseurl }}/images/follow_line.png)
 
