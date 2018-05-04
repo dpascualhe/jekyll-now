@@ -26,4 +26,17 @@ where *h* is the image height. In that way, we make the row selection dependent 
 
  ![Error]({{ site.baseurl }}/images/follow_line/error.png)
  
- In order to make the magnitude of the error easier to work with, we normalize the error by dividing it by *w/2*, which is the maximum possible error. In that way, the error is constrained between -1 and 1.
+ In order to make the magnitude of the error easier to work with, we normalize the error dividing it by *w/2*, which is the maximum possible error. In that way, the error will be constrained between -1 and 1.
+
+A visualization of the image center (green line) and the line deviation (blue line) is shown in the following image.
+
+ ![Line deviation]({{ site.baseurl }}/images/follow_line/centers.png)
+
+## Turn detection
+In order to detect whether the car is in a turn or not, I tried first to use the same information extracted for computing the error. However, it resulted to be tricky as sometimes, when you're in a turn, the upper and lower centers defined before can be well aligned with the image center. Surprisingly, the most effective method I have come up with is analyze the segmented line geometry. Thanks to OpenCV *findContours* and *approxPolyDP* functions, it is possible to find the contour of the line object and approximate a polygon with a given precision. As it can be seen in the following pictures, when the line is straight its shape resembles a triangle, but when we're on a turn its shape turns into a more complex polygon.
+
+ ![Different lines]({{ site.baseurl }}/images/follow_line/straight_turn.png)
+
+Taking advantage of this property, we detect a turn when the approximated polygon of the line has more than 3 sides.
+ 
+
