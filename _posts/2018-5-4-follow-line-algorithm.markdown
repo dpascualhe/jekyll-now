@@ -50,30 +50,11 @@ When we talk about reactive control, we mean that our robot behavior will be con
 
 Every order we send to the car actuators will be based on the PD controller output and the *turn dectector* that we have implemented. In order to achieve our objective, four different cases with their respective actuations have been defined:
 
-<table>
-<colgroup>
-<col width="30%" />
-<col width="70%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td markdown="span">First column **fields**</td>
-<td markdown="span">Some descriptive text. This is a markdown link to [Google](http://google.com). Or see [some link][mydoc_tags].</td>
-</tr>
-<tr>
-<td markdown="span">Second column **fields**</td>
-<td markdown="span">Some more descriptive text.
-</td>
-</tr>
-</tbody>
-</table>
-
+<style>
+.tablelines table, .tablelines td, .tablelines th {
+        border: 1px solid black;
+        }
+</style>
 
 | Situations                       | Actions                                    |
 | -------------------------------- | ------------------------------------------ |
@@ -81,6 +62,7 @@ Every order we send to the car actuators will be based on the PD controller outp
 | Straight line during > 10 frames | v = 20;   w = PD controller(kp=0.25, kd=3) |
 | Straight line during < 10 frames | v = 6;    w = PD controller(kp=0.25, kd=3) |
 | No line                          | v = 0.25; w = 0.25                         | 
+{: .tablelines}
 
 All the values for the proportional and derivative terms gains have been adjusted experimentally, as well as the linear velocities for each case. Now I'm going to clarify some decisions that may look weird:
 - When the car is over a straight line, I have decided to take into account how much time has passed since we found the last turn as I noticed that, sometimes, when two turns are consecutive and heading to opposite directions, there's a small section of line between them that looks straight. That little straight area would made the car accelerate way too much, losing the red line.
