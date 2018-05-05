@@ -2,7 +2,7 @@
 layout: post
 title: Follow Line - Intro
 ---
-And here we go again! This is first post regarding ***Follow Line***, my first assignment for the robotic vision course. The objective of this practice is to implement an algorithm that allows an F1 car to follow a red line painted over a racing circuit and complete a lap. In order to achieve our goal, we're going to use reactive control techniques, more specifically, **PID control**. But first things first. Let's start presenting the tools provided along with this practice.
+And here we go again! This is first post regarding ***Follow Line***, my first assignment for the robotic vision course. The objective of this practice is to implement an algorithm that allows an F1 car to follow a red line painted over a racing circuit and complete a lap. In order to achieve our goal, we're going to use reactive control techniques, more specifically, a **PD controller**. But first things first. Let's start presenting the tools provided along with this practice.
 
 ## Gazebo simulation
 Gazebo is an open-source tool for complex robotics simulations. In our case, both the racing circuit and the F1 car, as well as their physical properties, are simulated within a Gazebo world. A screenshot of the *simpleCircuit* world can be seen in the following figure.

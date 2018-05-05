@@ -2,7 +2,7 @@
 layout: post
 title: Follow Line - Algorithm
 ---
-The algorithm developed relies on computer vision and reactive control to drive the car autonomously. In a nutshell, the red line is segmented from the car front camera in order to check whether the car is centered or not. Then, the error is estimated and fed to a PID control which will tell the car how much to steer to keep on the line. Besides that, the line shape is analyzed to detect if we're on a turn and the velocity is adjusted consequently. The following diagram shows an overview of the method proposed.
+The algorithm developed relies on computer vision and reactive control to drive the car autonomously. In a nutshell, the red line is segmented from the car front camera in order to check whether the car is centered or not. Then, the error is estimated and fed to a PD controller which will tell the car how much to steer to keep on the line. Besides that, the line shape is analyzed to detect if we're on a turn and the velocity is adjusted consequently. The following diagram shows an overview of the method proposed.
 
 ![Flow diagram]({{ site.baseurl }}/images/follow_line/flow.png)
 
@@ -39,4 +39,27 @@ In order to detect whether the car is in a turn or not, I tried first to use the
 
 Taking advantage of this property, we detect a turn when the approximated polygon of the line has more than 3 sides.
  
+## Reactive control
+When we talk about reactive control, we mean that our robot behavior will be constantly determined by its sensors output. This kind of behavior can be summed up in a closed loop like the following one:
 
+ ![Reactive control]({{ site.baseurl }}/images/follow_line/reactive_control.png)
+ 
+ This kind of control is suitable to our problem as we need a really fast interaction with the environment. Besides that, our only sensor is a camera and we only have to fulfill one task: follow the red line. This low-complexity system can be easily controlled in a reactive manner. For this practice, we're going to implement a PD controller which is a control loop as the one we have seen before, but aided by feedback about whether or not the error is decreasing. It relies in two terms: proportional and derivative. On one hand, the proportional term just takes the error and scales it by a given factor or gain. On the other hand, the derivative term scales not the error, but its derivative with respect to the time, which can be easily obtained as the difference between the current error and the error in the previous frame. Including a derivative term is necessary because otherwise the controller output would oscillate instead of converging to the desired one. The following equation summarizes the PD control we have just explained:
+ 
+  ![PD controller]({{ site.baseurl }}/images/follow_line/pd.png)
+
+Every order we send to the car actuators will be based on the PD controller output and the *turn dectector* that we have implemented. In order to achieve our objective, four different cases with their respective actuations have been defined:
+
+
+| Situations                       | Actions                                    |
+| -------------------------------- | ------------------------------------------ |
+| Turn                             | v = 6;    w = PD controller(kp=2, kd=3.5)  |
+| Straight line during > 10 frames | v = 20;   w = PD controller(kp=0.25, kd=3) |
+| Straight line during < 10 frames | v = 6;    w = PD controller(kp=0.25, kd=3) |
+| No line                          | v = 0.25; w = 0.25                         | 
+
+All the values for the proportional and derivative terms gains have been adjusted experimentally, as well as the linear velocities for each case. Now I'm going to clarify some decisions that may look weird:
+- When we're on a straight line, I have decided to take into account how much time has passed since we found the last turn as I noticed that, sometimes, when two turns are consecutive and heading to opposite directions, there's a small section of line between them that looks straight. That little straight area would made the car accelerate way too much, losing the red line.
+- When we cannot see the line, we just start spinning slowly until we found it again. It doesn't work quite fine, but it's the best solution I've come up with :(.
+
+In the following post we're going to see the F1 car hit the pedal to the metal. See you there!
