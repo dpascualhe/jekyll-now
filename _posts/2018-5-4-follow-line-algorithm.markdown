@@ -50,6 +50,30 @@ When we talk about reactive control, we mean that our robot behavior will be con
 
 Every order we send to the car actuators will be based on the PD controller output and the *turn dectector* that we have implemented. In order to achieve our objective, four different cases with their respective actuations have been defined:
 
+<table>
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">First column **fields**</td>
+<td markdown="span">Some descriptive text. This is a markdown link to [Google](http://google.com). Or see [some link][mydoc_tags].</td>
+</tr>
+<tr>
+<td markdown="span">Second column **fields**</td>
+<td markdown="span">Some more descriptive text.
+</td>
+</tr>
+</tbody>
+</table>
+
 
 | Situations                       | Actions                                    |
 | -------------------------------- | ------------------------------------------ |
@@ -59,7 +83,7 @@ Every order we send to the car actuators will be based on the PD controller outp
 | No line                          | v = 0.25; w = 0.25                         | 
 
 All the values for the proportional and derivative terms gains have been adjusted experimentally, as well as the linear velocities for each case. Now I'm going to clarify some decisions that may look weird:
-- When we're on a straight line, I have decided to take into account how much time has passed since we found the last turn as I noticed that, sometimes, when two turns are consecutive and heading to opposite directions, there's a small section of line between them that looks straight. That little straight area would made the car accelerate way too much, losing the red line.
+- When the car is over a straight line, I have decided to take into account how much time has passed since we found the last turn as I noticed that, sometimes, when two turns are consecutive and heading to opposite directions, there's a small section of line between them that looks straight. That little straight area would made the car accelerate way too much, losing the red line.
 - When we cannot see the line, we just start spinning slowly until we found it again. It doesn't work quite fine, but it's the best solution I've come up with :(.
 
 In the following post we're going to see the F1 car hit the pedal to the metal. See you there!
