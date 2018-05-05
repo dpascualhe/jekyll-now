@@ -56,12 +56,12 @@ Every order we send to the car actuators will be based on the PD controller outp
         }
 </style>
 
-| Situations                       | Actions                                    |
-| -------------------------------- | ------------------------------------------ |
-| Turn                             | v = 6;    w = PD controller(kp=2, kd=3.5)  |
-| Straight line during > 10 frames | v = 20;   w = PD controller(kp=0.25, kd=3) |
-| Straight line during < 10 frames | v = 6;    w = PD controller(kp=0.25, kd=3) |
-| No line                          | v = 0.25; w = 0.25                         | 
+| **Situations**                    |  **Actions**                                 |
+| --------------------------------- | -------------------------------------------- |
+| Turn                              |  v = 6;    w = PD controller(kp=2, kd=3.5)   |
+| Straight line during > 10 frames  |  v = 20;   w = PD controller(kp=0.25, kd=3)  |
+| Straight line during < 10 frames  |  v = 6;    w = PD controller(kp=0.25, kd=3)  |
+| No line                           |  v = 0.25; w = 0.25                          | 
 {: .tablelines}
 
 All the values for the proportional and derivative terms gains have been adjusted experimentally, as well as the linear velocities for each case. Now I'm going to clarify some decisions that may look weird:
