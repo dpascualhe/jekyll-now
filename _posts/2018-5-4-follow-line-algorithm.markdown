@@ -59,13 +59,13 @@ Every order we send to the car actuators will be based on the PD controller outp
 | **Situations**                    |  **Actions**                                 |
 | --------------------------------- | -------------------------------------------- |
 | Turn                              |  v = 6;    w = PD controller(kp=2, kd=3.5)   |
-| Straight line during > 10 frames  |  v = 20;   w = PD controller(kp=0.25, kd=3)  |
-| Straight line during < 10 frames  |  v = 6;    w = PD controller(kp=0.25, kd=3)  |
-| No line                           |  v = 0.25; w = 0.25                          | 
+| Straight line during > 10 frames  |  v = 20;   w = PD controller(kp=0.25, kd=1)  |
+| Straight line during < 10 frames  |  v = 6;    w = PD controller(kp=0.25, kd=1)  |
+| No line                           |  v = 0.25; w = +/- 0.25                      | 
 {: .tablelines}
 
 All the values for the proportional and derivative terms gains have been adjusted experimentally, as well as the linear velocities for each case. Now I'm going to clarify some decisions that may look weird:
 - When the car is over a straight line, I have decided to take into account how much time has passed since we found the last turn as I noticed that, sometimes, when two turns are consecutive and heading to opposite directions, there's a small section of line between them that looks straight. That little straight area would made the car accelerate way too much, losing the red line.
-- When we cannot see the line, we just start spinning slowly until we found it again. It doesn't work quite fine, but it's the best solution I've come up with :(.
+- When we cannot see the line, we just slow down and keep turning in the same direction that we did in the previous frame but with a small magnitude.
 
 In the following post we're going to see the F1 car hit the pedal to the metal. See you there!
