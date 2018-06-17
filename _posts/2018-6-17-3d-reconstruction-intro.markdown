@@ -13,6 +13,6 @@ A new exercise from JdeRobot Academy platform! The aim of ***3D Reconstruction**
 
 ...and that's it! The 3D scene that we're going to reconstruct is provided as a Gazebo world, as can be seen in the following picture.
 
-![follow_line]({{ site.baseurl }}/images/3drecon/gazebo.png)
+![gazebo]({{ site.baseurl }}/images/3drecon/gazebo.png)
 
 Besides the Gazebo world, a 3D visualization tool for drawing our results is also included in the JdeRobot Academy repo. It's worth mentioning that our cameras form acutally a canonical configuration as they're parallel and pointing in the same direction. This could simplify things a lot but we're not going to make any assumption about the stereo system configuration and try to solve the general task.
