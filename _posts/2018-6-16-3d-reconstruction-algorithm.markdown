@@ -32,8 +32,13 @@ In order to define this ray, we're going to simply treat it like a straight line
   <mo>+</mo>
   <mi>k</mi>
   <mo>&#x22C5;<!-- ⋅ --></mo>
-  <mi>A</mi>
-  <mi>B</mi>
+  <mover>
+    <mrow>
+      <mi>A</mi>
+      <mi>B</mi>
+    </mrow>
+    <mo>&#x2192;<!-- → --></mo>
+  </mover>
 </math> 
 
 where *A* will be our camera 3D location, *B* our backprojected point and *AB=B-A*, a vector that defines the direction of our line. As we give different values to the parameter *k*, we generate new points in the line.
