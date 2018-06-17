@@ -37,6 +37,7 @@ In order to define this ray, we're going to simply treat it like a straight line
       <mi>A</mi>
       <mi>B</mi>
     </mrow>
+    <mo>&#x2192;<!-- → --></mo>
   </mover>
 </math> 
 
